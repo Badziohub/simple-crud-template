@@ -9,5 +9,7 @@ public class SimpleCrudTemplateApplication {
     public static void main(String[] args) {
         SpringApplication.run(SimpleCrudTemplateApplication.class, args);
     }
-
+//TODO : dodać validation dependency i dodać walidacje dodawanych rzeczy
+    //TODO: Testy jednostkowe dodwania i edycji
+    //TODO: front
 }
