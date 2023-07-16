@@ -3,6 +3,7 @@ package badziohub.simplecrudtemplate.firstentity;
 import badziohub.simplecrudtemplate.Counter;
 import badziohub.simplecrudtemplate.firstentity.dto.FirstEntityRequestDto;
 import badziohub.simplecrudtemplate.firstentity.dto.FirstEntityResponseDto;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,13 +25,13 @@ public class FirstEntityController {
     }
 
     @PutMapping("{id}")
-    public FirstEntityResponseDto update(@PathVariable Long id,@RequestBody FirstEntityRequestDto requestDto){
+    public FirstEntityResponseDto update(@PathVariable Long id,@RequestBody @Valid FirstEntityRequestDto requestDto){
         counter.updateCounter();
         return firstEntityService.update(id,requestDto);
     }
 
     @PostMapping("")
-    public FirstEntityResponseDto add(FirstEntityRequestDto requestDto){
+    public FirstEntityResponseDto add(@Valid FirstEntityRequestDto requestDto){
         counter.updateCounter();
         return firstEntityService.add(requestDto);
     }

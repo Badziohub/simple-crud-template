@@ -23,8 +23,8 @@ public class FirstEntityService {
     @Transactional
     public FirstEntityResponseDto update(Long id, FirstEntityRequestDto requestDto){
         final var foundEntity = firstEntityRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("Entity with id %s was not found".formatted(id)));
-        if(requestDto.content() != null )foundEntity.setContent(requestDto.content());
-        if(requestDto.status() != null ) foundEntity.setStatus(requestDto.status());
+        foundEntity.setContent(requestDto.content());
+        foundEntity.setStatus(requestDto.status());
         return firstEntityMapper.entityToResponse(foundEntity);
     }
 
