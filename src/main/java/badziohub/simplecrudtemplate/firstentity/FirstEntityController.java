@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class FirstEntityController {
 
     private final FirstEntityService firstEntityService;
@@ -31,7 +32,7 @@ public class FirstEntityController {
     }
 
     @PostMapping("")
-    public FirstEntityResponseDto add(@Valid FirstEntityRequestDto requestDto){
+    public FirstEntityResponseDto add( @RequestBody @Valid FirstEntityRequestDto requestDto){
         counter.updateCounter();
         return firstEntityService.add(requestDto);
     }
