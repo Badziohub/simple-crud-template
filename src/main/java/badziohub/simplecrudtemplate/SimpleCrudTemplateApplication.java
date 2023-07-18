@@ -9,5 +9,4 @@ public class SimpleCrudTemplateApplication {
     public static void main(String[] args) {
         SpringApplication.run(SimpleCrudTemplateApplication.class, args);
     }
-    //TODO: front
 }
